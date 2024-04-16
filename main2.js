@@ -7,19 +7,20 @@ const url2 = `http://api.weatherapi.com/v1/current.json?key=831cf2b10ac1459e9a31
 
 async function getData(){
 
+    let idContainer = document.getElementById('info_container')
     //this is how to catch errors with async
     try{
         let response = await fetch(url2); //fetch is a promise so it has to wait, but with the async syntax it works here... wouldn't work in the then and catch way
-        console.log(response)
+
         let dataobj = await response.json();
 
         if (! response.ok) throw new Error('not a valid response'); //is needed to catch errors
-
+        
         console.log(dataobj)    
     }   catch(err){
         console.warn(err.message)
     }
-    
+  
 
 
 }
